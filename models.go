@@ -615,6 +615,18 @@ func (x reqUserInfoGet) intoURLValues() url.Values {
 	}
 }
 
+type reqUserDetailTicket struct {
+	UserTicket string `json:"user_ticket"`
+}
+
+var _ urlValuer = reqUserDetailTicket{}
+
+func (x reqUserDetailTicket) intoURLValues() url.Values {
+	return url.Values{
+		"user_ticket": {x.UserTicket},
+	}
+}
+
 // respUserInfoGet 部门列表响应
 type respUserInfoGet struct {
 	respCommon

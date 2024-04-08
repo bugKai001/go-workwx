@@ -240,6 +240,20 @@ func (c *WorkwxApp) execUserInfoGet(req reqUserInfoGet) (respUserInfoGet, error)
 	return resp, nil
 }
 
+// execUserDetailGetByTicket 获取用户详情
+func (c *WorkwxApp) execUserDetailGetByTicket(req reqUserDetailTicket) (respUserGet, error) {
+	var resp respUserGet
+	err := c.executeQyapiGet("/cgi-bin/auth/getuserdetail", req, &resp, true)
+	if err != nil {
+		return respUserGet{}, err
+	}
+	if bizErr := resp.TryIntoErr(); bizErr != nil {
+		return respUserGet{}, bizErr
+	}
+
+	return resp, nil
+}
+
 // execExternalContactList 获取客户列表
 func (c *WorkwxApp) execExternalContactList(req reqExternalContactList) (respExternalContactList, error) {
 	var resp respExternalContactList
