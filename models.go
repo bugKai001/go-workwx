@@ -622,7 +622,7 @@ type reqUserDetailTicket struct {
 var _ bodyer = reqUserDetailTicket{}
 
 func (x reqUserDetailTicket) intoBody() ([]byte, error) {
-	return marshalIntoJSONBody(x.UserTicket)
+	return marshalIntoJSONBody(x)
 }
 
 // respUserInfoGet 部门列表响应
