@@ -243,3 +243,12 @@ func (c *WorkwxApp) AuthCode2UserInfo(code string) (*AuthCodeUserInfo, error) {
 	}
 	return &resp.AuthCodeUserInfo, nil
 }
+
+// UserDetailGetByTicket 获取访问用户信息
+func (c *WorkwxApp) UserDetailGetByTicket(userTicket string) (*UserDetail, error) {
+	resp, err := c.execUserDetailGetByTicket(reqUserDetailTicket{UserTicket: userTicket})
+	if err != nil {
+		return nil, err
+	}
+	return &resp.UserDetail, nil
+}
