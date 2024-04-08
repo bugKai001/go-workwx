@@ -619,12 +619,10 @@ type reqUserDetailTicket struct {
 	UserTicket string `json:"user_ticket"`
 }
 
-var _ urlValuer = reqUserDetailTicket{}
+var _ bodyer = reqUserDetailTicket{}
 
-func (x reqUserDetailTicket) intoURLValues() url.Values {
-	return url.Values{
-		"user_ticket": {x.UserTicket},
-	}
+func (x reqUserDetailTicket) intoBody() ([]byte, error) {
+	return marshalIntoJSONBody(x.UserTicket)
 }
 
 // respUserInfoGet 部门列表响应

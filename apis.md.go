@@ -243,7 +243,7 @@ func (c *WorkwxApp) execUserInfoGet(req reqUserInfoGet) (respUserInfoGet, error)
 // execUserDetailGetByTicket 获取用户详情
 func (c *WorkwxApp) execUserDetailGetByTicket(req reqUserDetailTicket) (respUserGet, error) {
 	var resp respUserGet
-	err := c.executeQyapiGet("/cgi-bin/auth/getuserdetail", req, &resp, true)
+	err := c.executeQyapiJSONPost("/cgi-bin/auth/getuserdetail", req, &resp, true)
 	if err != nil {
 		return respUserGet{}, err
 	}
