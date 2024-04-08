@@ -5,7 +5,7 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	"github.com/xen0n/go-workwx"
+	"github.com/bugKai001/go-workwx"
 )
 
 func cmdWebhookSendMessage(c *cli.Context) error {

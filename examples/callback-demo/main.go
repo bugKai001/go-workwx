@@ -1,3 +1,4 @@
+//go:build examples
 // +build examples
 
 package main
@@ -7,7 +8,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/xen0n/go-workwx"
+	"github.com/bugKai001/go-workwx"
 )
 
 type dummyRxMessageHandler struct{}
